@@ -1,0 +1,307 @@
+/* 全局重置与基础设定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    /* 使用柔和渐变背景：浅蓝->浅紫->浅粉 */
+    background: linear-gradient(120deg, #A1C4FD, #C2E9FB 40%, #FBC2EB 80%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 顶部栏样式 */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+header .logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+header .logo .logo-img {
+    height: 30px; /* 根据需要调整高度 */
+    margin-right: 10px; /* 给图片和文字留出间距 */
+    position: relative;     /* 新增父 */
+    top: 3px;               /* 将图片向下移动3px，可根据需要调整 */
+}
+
+header .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #2C3E50;
+}
+
+header .creator {
+    font-size: 14px;
+    color: #555;
+}
+
+/* 主体布局 */
+.container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* 左侧主视频显示区域 */
+.video-area {
+    flex: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}
+
+.video-placeholder {
+    width: 95%;
+    height: 90%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 18px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+}
+
+.video-placeholder::before {
+    content: "Video Live Area";
+    opacity: 0.5;
+}
+
+/* 模拟全屏按钮 */
+.fullscreen-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    background: linear-gradient(to bottom right, #fff, #f0f0f0);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.fullscreen-btn:hover {
+    background: linear-gradient(to bottom right, #f9f9f9, #eee);
+    transform: scale(1.05);
+}
+
+/* 右侧控制与内容区域 */
+.side-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* 学生小画面区域，设定16:9比例 */
+.student-view {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #ddd;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.student-view::before {
+    content: "Student View";
+    opacity: 0.7;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    color: #555;
+}
+
+.student-view-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+
+/* 视频镜像效果 */
+.student-view video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: scaleX(-1);
+}
+
+/* 显示老师讲解内容的区域 */
+.teacher-content {
+    flex: 1;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.8);
+    border-radius: 8px;
+    padding: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #999 #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.teacher-content::-webkit-scrollbar {
+    width: 6px;
+}
+.teacher-content::-webkit-scrollbar-track {
+    background: #eee;
+}
+.teacher-content::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 3px;
+}
+
+.teacher-content h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #2C3E50;
+}
+
+.teacher-content p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.teacher-content img {
+    max-width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 八个按钮区域 */
+.buttons-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.buttons-area button {
+    flex: 1 1 calc(25% - 10px);
+    background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    transition: transform 0.2s ease, box-shadow 0.3s;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.buttons-area button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media(max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+    .video-area {
+        flex: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        height: 50vh;
+    }
+}
+
+/* 浮动装饰气泡 */
+.floating-decorations {
+    pointer-events: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at center, #fff 0%, #F9C0C0 50%, #F7A5A5 100%);
+    opacity: 0.6;
+    border-radius: 50%;
+    animation: floatBubble 8s infinite ease-in;
+}
+
+@keyframes floatBubble {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(30px) translateY(-300px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-30px) translateY(-600px);
+        opacity: 0;
+    }
+}
+
+.bubble:nth-child(2) {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #fff 0%, #C0F9C0 50%, #A5F7A5 100%);
+    animation-duration: 6s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #fff 0%, #C0D9F9 50%, #A5BFF7 100%);
+    animation-duration: 10s;
+    animation-delay: 1s;
+}

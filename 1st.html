@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>starsailor - AI Education Platform</title>
+    <!-- 引用外部CSS文件 -->
+    <link rel="stylesheet" href="../static/css/1st.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../static/image/starsailor.png" alt="404" class="logo-img">
+            <span>starsailor</span>
+        </div>
+        <div class="creator">by Joe Zhang</div>
+    </header>
+    <div class="container">
+        <div class="video-area">
+            <div class="video-placeholder"></div>
+            <div class="fullscreen-btn">Full Screen</div>
+        </div>
+        <div class="side-panel">
+            <!-- Student View 区域 -->
+            <div class="student-view">
+                <button class="student-view-btn" id="openCamBtn">请求开启摄像头</button>
+                <video id="studentVideo" autoplay playsinline></video>
+            </div>
+            <div class="teacher-content"></div>
+            <div class="buttons-area">
+                <button>Btn 1</button>
+                <button>Btn 2</button>
+                <button>Btn 3</button>
+                <button>Btn 4</button>
+                <button>Btn 5</button>
+                <button>Btn 6</button>
+                <button>Btn 7</button>
+                <button>Btn 8</button>
+            </div>
+        </div>
+    </div>
+    <div class="floating-decorations">
+        <div class="bubble" style="left:10%;"></div>
+        <div class="bubble" style="left:30%;"></div>
+        <div class="bubble" style="left:50%;"></div>
+        <div class="bubble" style="left:70%;"></div>
+        <div class="bubble" style="left:90%;"></div>
+    </div>
+
+    <!-- 引用外部JS文件，使用defer确保HTML加载后再执行JS -->
+    <script src="../static/js/1st.js" defer></script>
+</body>
+</html>
